@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.action_sheet.*
  */
 
 class ActionSheet(private var options: Options) : BottomSheetDialogFragment() {
-    private val adapter by lazy { ActionSheetAdapter(options.items) }
+    private val adapter by lazy { ActionSheetAdapter(options.actions) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -129,36 +129,44 @@ class ActionSheet(private var options: Options) : BottomSheetDialogFragment() {
     }
 
     class Options {
-        internal var items: List<ActionItem> = emptyList()
-        internal var title: String? = null
-        internal var message: String? = null
-        internal var isCancelable = true
+         var actions: List<ActionItem> = emptyList()
+         var title: String? = null
+         var message: String? = null
+         var isCancelable = true
     }
 
     class Builder {
         private val options = Options()
+        var actions: List<ActionItem> = emptyList()
+        var title: String? = null
+        var message: String? = null
+        var isCancelable = true
 
         fun title(title: String): Builder {
-            options.title = title
+            this.title = title
             return this
         }
 
         fun message(message: String): Builder {
-            options.message = message
+            this.message = message
             return this
         }
 
         fun actions(actions: List<ActionItem>): Builder {
-            options.items = actions
+            this.actions = actions
             return this
         }
 
         fun isCancelable(isCancelable: Boolean): Builder {
-            options.isCancelable = isCancelable
+            this.isCancelable = isCancelable
             return this
         }
 
         fun show(manager: FragmentManager) {
+            options.title = title
+            options.message = message
+            options.actions = actions
+            options.isCancelable = isCancelable
             ActionSheet(options).show(manager)
         }
     }
@@ -167,4 +175,9 @@ class ActionSheet(private var options: Options) : BottomSheetDialogFragment() {
         super.show(manager, javaClass.name)
     }
 
+    companion object {
+        fun create(block: Builder.() -> Unit) {
+            Builder().apply { block() }
+        }
+    }
 }

@@ -36,6 +36,32 @@ class MainActivity : FragmentActivity() {
         val option4 = ActionItem(title = "Option 4") {
             // action selected
         }
+
+        ActionSheet.create {
+            actions = listOf(option1, option2, option3, option4)
+            title = ""
+            message = ""
+            isCancelable = true
+            show(supportFragmentManager)
+        }
+    }
+
+    private fun showActionSheetWithBuilder() {
+        val option1 = ActionItem(title = "Option 1") {
+            // action selected
+        }
+        // You can set a tag
+        option1.tag = 0
+
+        val option2 = ActionItem(title = "Option 2") {
+            // action selected
+        }
+        val option3 = ActionItem(title = "Option 3") {
+            // action selected
+        }
+        val option4 = ActionItem(title = "Option 4") {
+            // action selected
+        }
         ActionSheet.Builder()
                 .actions(listOf(option1, option2, option3, option4))
                 .title("Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title")
