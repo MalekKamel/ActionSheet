@@ -69,6 +69,10 @@ dependencies {
                 .show(manager);
 ```
 
+## Contibution
+
+All contributions are always welcome. Just submit a Pull request **PR**.
+
 ### 🛡 License
 <details>
     <summary>
