@@ -5,7 +5,7 @@ ActionSheet
 
 ActionSheet is an Android clone of iOS action sheet component, completely typical to iOS7 style.
 
-<img src="https://github.com/ShabanKamell/ActionSheet/blob/master/blob/raw/action_sheet.png?raw=true" height="500">
+<img src="https://github.com/ShabanKamell/ActionSheet/blob/master/blob/raw/action_sheet_2.png?raw=true" height="500">
 
 ## Installation
 
@@ -29,7 +29,16 @@ dependencies {
 #### Kotlin 
 
 ```kotlin
-        val option1 = ActionItem(title = "Option 1") {
+     val option1 = ActionItem(title = "Option 1") {
+            Toast.makeText(this, "Option 1 selected.", Toast.LENGTH_SHORT).show()
+        }
+        // You can set a tag
+        option1.tag = 0
+
+        val option2 = ActionItem(title = "Option 2", style = Style.DESTRUCTIVE) {
+            // action selected
+        }
+        val option3 = ActionItem(title = "Option 3", isEnabled = false) {
             // action selected
         }
         
@@ -37,8 +46,9 @@ dependencies {
          ActionSheet.create {
             title = "TITLE"
             message = "MESSAGE"
-            actions = listOf(option1)
+            actions = listOf(option1, option2, option3)
             isCancelable = true // true by default
+            isCancelableOnActionClick = true // true by default
             show(supportFragmentManager)
         }
         
