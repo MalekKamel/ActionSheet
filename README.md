@@ -20,6 +20,50 @@ dependencies {
         implementation 'com.github.ShabanKamell:ActionSheet:x.y.z'
 }
 ```
+#### Usage
+
+#### Kotlin 
+
+```kotlin
+        val option1 = ActionItem(title = "Option 1") {
+            // action selected
+        }
+        
+        // Using using DSL
+         ActionSheet.create {
+            actions = listOf(option1)
+            title = "TITLE"
+            message = "MESSAGE"
+            isCancelable = true // true by default
+            show(supportFragmentManager)
+        }
+        
+        // Or using Ktolin Builder
+        ActionSheet.Builder()
+                .actions(listOf(option1))
+                .title("TITLE")
+                .message("MESSAGE")
+                .show(supportFragmentManager)
+```
+
+#### Java
+
+```java
+        ActionItem option1 = new ActionItem(
+                "Option 1",
+                () -> {
+                    // Do something
+                    return Unit.INSTANCE;
+                });
+        List<ActionItem> actions = new ArrayList<>();
+        actions.add(option1);
+        new ActionSheet.Builder()
+                .title("TITLE")
+                .message("MESSAGE")
+                .actions(actions)
+                .isCancelable(true)
+                .show(manager);
+```
 
 ### 🛡 License
 <details>
