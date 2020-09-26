@@ -33,9 +33,9 @@ dependencies {
         
         // Using using DSL
          ActionSheet.create {
-            actions = listOf(option1)
             title = "TITLE"
             message = "MESSAGE"
+            actions = listOf(option1)
             isCancelable = true // true by default
             show(supportFragmentManager)
         }
