@@ -10,5 +10,5 @@ data class ActionItem @JvmOverloads constructor(
 )
 
 enum class Style {
-    DEFAULT, CANCEL, DESTRUCTIVE
+    DEFAULT, DESTRUCTIVE
 }

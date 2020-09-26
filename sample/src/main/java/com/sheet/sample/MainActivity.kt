@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import com.sha.sheet.ActionItem
 import com.sha.sheet.ActionSheet
+import com.sha.sheet.Style
 
 class MainActivity : FragmentActivity() {
 
@@ -28,10 +29,10 @@ class MainActivity : FragmentActivity() {
         // You can set a tag
         option1.tag = 0
 
-        val option2 = ActionItem(title = "Option 2", isEnabled = false) {
+        val option2 = ActionItem(title = "Option 2", style = Style.DESTRUCTIVE) {
             // action selected
         }
-        val option3 = ActionItem(title = "Option 3") {
+        val option3 = ActionItem(title = "Option 3", isEnabled = false) {
             // action selected
         }
         val option4 = ActionItem(title = "Option 4") {
