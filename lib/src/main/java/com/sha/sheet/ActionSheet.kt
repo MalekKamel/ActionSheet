@@ -119,8 +119,10 @@ class ActionSheet(private var options: Options) : BottomSheetDialogFragment() {
     private fun setupDivider() {
         if (options.title != null || options.message != null) {
             divider.visibility = View.VISIBLE
+            topSpace.visibility = View.VISIBLE
             return
         }
+        topSpace.visibility = View.GONE
         divider.visibility = View.GONE
     }
 
