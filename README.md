@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/ShabanKamell/ActionSheet.svg)](https://jitpack.io/#ShabanKamell/ActionSheet)
+
 ActionSheet
 ===========
 
@@ -38,7 +40,7 @@ dependencies {
             show(supportFragmentManager)
         }
         
-        // Or using Ktolin Builder
+        // Or using Kotlin Builder
         ActionSheet.Builder()
                 .actions(listOf(option1))
                 .title("TITLE")
