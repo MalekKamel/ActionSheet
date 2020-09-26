@@ -22,6 +22,8 @@ dependencies {
         implementation 'com.github.ShabanKamell:ActionSheet:x.y.z'
 }
 ```
+(Please replace x, y and z with the latest version numbers: [![](https://jitpack.io/v/ShabanKamell/ActionSheet.svg)](https://jitpack.io/#ShabanKamell/ActionSheet))
+
 #### Usage
 
 #### Kotlin 
