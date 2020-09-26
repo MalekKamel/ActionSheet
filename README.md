@@ -1,6 +1,22 @@
 ActionSheet
 ===========
 
+## Installation
+
+#### Gradle:
+```groovy
+allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+
+dependencies {
+        implementation 'com.github.ShabanKamell:ActionSheet:x.y.z'
+}
+```
+
 ### 🛡 License
 <details>
     <summary>
