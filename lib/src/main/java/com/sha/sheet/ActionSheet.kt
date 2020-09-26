@@ -24,7 +24,12 @@ import kotlinx.android.synthetic.main.action_sheet.*
  */
 
 class ActionSheet(private var options: Options) : BottomSheetDialogFragment() {
-    private val adapter by lazy { ActionSheetAdapter(options.actions) }
+    private val adapter by lazy {
+        ActionSheetAdapter(options.actions) {
+            if (!options.isCancelableOnActionClick) return@ActionSheetAdapter
+            dismiss()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -129,10 +134,11 @@ class ActionSheet(private var options: Options) : BottomSheetDialogFragment() {
     }
 
     class Options {
-         var actions: List<ActionItem> = emptyList()
-         var title: String? = null
-         var message: String? = null
-         var isCancelable = true
+        var actions: List<ActionItem> = emptyList()
+        var title: String? = null
+        var message: String? = null
+        var isCancelable = true
+        var isCancelableOnActionClick = true
     }
 
     class Builder {
@@ -141,6 +147,7 @@ class ActionSheet(private var options: Options) : BottomSheetDialogFragment() {
         var title: String? = null
         var message: String? = null
         var isCancelable = true
+        var isCancelableOnActionClick = true
 
         fun title(title: String): Builder {
             this.title = title
@@ -162,11 +169,17 @@ class ActionSheet(private var options: Options) : BottomSheetDialogFragment() {
             return this
         }
 
+        fun isCancelableOnActionClick(isCancelable: Boolean): Builder {
+            this.isCancelableOnActionClick = isCancelable
+            return this
+        }
+
         fun show(manager: FragmentManager) {
             options.title = title
             options.message = message
             options.actions = actions
             options.isCancelable = isCancelable
+            options.isCancelableOnActionClick = isCancelableOnActionClick
             ActionSheet(options).show(manager)
         }
     }

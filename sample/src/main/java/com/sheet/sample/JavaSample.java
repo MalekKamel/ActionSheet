@@ -52,6 +52,7 @@ public class JavaSample {
                 .message("Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message")
                 .actions(actions)
                 .isCancelable(true)
+                .isCancelableOnActionClick(true)
                 .show(manager);
     }
 }

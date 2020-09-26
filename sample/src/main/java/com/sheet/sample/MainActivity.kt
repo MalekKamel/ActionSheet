@@ -1,6 +1,7 @@
 package com.sheet.sample
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import com.sha.sheet.ActionItem
@@ -22,12 +23,12 @@ class MainActivity : FragmentActivity() {
 
     private fun showActionSheet() {
         val option1 = ActionItem(title = "Option 1") {
-            // action selected
+            Toast.makeText(this, "Option 1 selected.", Toast.LENGTH_SHORT).show()
         }
         // You can set a tag
         option1.tag = 0
 
-        val option2 = ActionItem(title = "Option 2") {
+        val option2 = ActionItem(title = "Option 2", isEnabled = false) {
             // action selected
         }
         val option3 = ActionItem(title = "Option 3") {
@@ -39,9 +40,10 @@ class MainActivity : FragmentActivity() {
 
         ActionSheet.create {
             actions = listOf(option1, option2, option3, option4)
-            title = ""
-            message = ""
+            title = "Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title"
+            message = "Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message"
             isCancelable = true
+            isCancelableOnActionClick = true
             show(supportFragmentManager)
         }
     }
@@ -66,6 +68,8 @@ class MainActivity : FragmentActivity() {
                 .actions(listOf(option1, option2, option3, option4))
                 .title("Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title")
                 .message("Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message")
+                .isCancelable(true)
+                .isCancelableOnActionClick(true)
                 .show(supportFragmentManager)
     }
 }
