@@ -30,7 +30,7 @@ dependencies {
 
 ```kotlin
      val option1 = ActionItem(title = "Option 1") {
-            Toast.makeText(this, "Option 1 selected.", Toast.LENGTH_SHORT).show()
+            // action selected
         }
         // You can set a tag
         option1.tag = 0
