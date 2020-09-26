@@ -57,8 +57,10 @@ dependencies {
                     // Do something
                     return Unit.INSTANCE;
                 });
+                
         List<ActionItem> actions = new ArrayList<>();
         actions.add(option1);
+        
         new ActionSheet.Builder()
                 .title("TITLE")
                 .message("MESSAGE")
