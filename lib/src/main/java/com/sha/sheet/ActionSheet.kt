@@ -189,8 +189,8 @@ class ActionSheet(private var options: Options) : BottomSheetDialogFragment() {
     }
 
     companion object {
-        fun create(block: Builder.() -> Unit) {
-            Builder().apply { block() }
+        fun create(block: Builder.() -> Unit): Builder {
+           return Builder().apply { block() }
         }
     }
 }
