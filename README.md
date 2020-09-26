@@ -1,6 +1,8 @@
 ActionSheet
 ===========
 
+ActionSheet is an Android clone of iOS action sheet component, completely typical to iOS7 style.
+
 ## Installation
 
 #### Gradle:
