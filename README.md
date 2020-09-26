@@ -54,7 +54,7 @@ dependencies {
         
         // Or using Kotlin Builder
         ActionSheet.Builder()
-                .actions(listOf(option1))
+                .actions(listOf(option1, option2, option3))
                 .title("TITLE")
                 .message("MESSAGE")
                 .show(supportFragmentManager)
